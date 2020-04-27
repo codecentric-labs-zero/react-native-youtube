@@ -34,7 +34,7 @@ RCT_EXPORT_METHOD(seekTo:(nonnull NSNumber *)reactTag seconds:(nonnull NSNumber 
 {
     [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry) {
         RCTYouTube *youtube = (RCTYouTube*)viewRegistry[reactTag];
-        
+
         [youtube seekToSeconds:seconds.floatValue allowSeekAhead:YES];
     }];
 }
@@ -91,7 +91,7 @@ RCT_EXPORT_METHOD(getCurrentTime:(nonnull NSNumber *)reactTag resolver:(RCTPromi
             if (error) {
                 reject(@"Error getting current time of video from RCTYouTube", @"", error);
             } else {
-                NSNumber *currentTime = [NSNumber numberWithInt:response];
+                NSNumber *currentTime = [NSNumber numberWithFloat:response];
                 resolve(currentTime);
             }
         }];

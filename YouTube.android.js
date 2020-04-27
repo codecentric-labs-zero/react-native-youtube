@@ -155,7 +155,7 @@ export default class YouTube extends React.Component {
     UIManager.dispatchViewManagerCommand(
       ReactNative.findNodeHandle(this._nativeComponentRef.current),
       UIManager.getViewManagerConfig('ReactYouTube').Commands.seekTo,
-      [parseInt(seconds, 10)],
+      [parseFloat(seconds, 10)],
     );
   }
 
